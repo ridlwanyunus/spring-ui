@@ -18,7 +18,7 @@ public class ViewController {
 	@GetMapping("kontak")
 	public String getKontakPage(Model model) {
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Kontak[]> response = restTemplate.getForEntity(apiUrl, Kontak[].class);
+		ResponseEntity<Kontak[]> response = restTemplate.getForEntity(apiUrl+"/kontak/all", Kontak[].class);
 		Kontak kontaks[] = response.getBody();
 		model.addAttribute("apiUrl", apiUrl+"/kontak/all");
 		model.addAttribute("kontaks", kontaks);
